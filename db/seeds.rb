@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Question.delete_all
+Answer.delete_all
+
+question = Question.create(description: "Hey ho je suis une description")
+question.answers << Answer.create(title: "Cheese U by the Baguette Band")
+question.answers << Answer.create(body: "Hmm, I think it's a song releated with wine")
+
