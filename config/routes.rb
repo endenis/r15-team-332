@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root 'pages#index'
-  get 'pages/about'
+  get 'about', to:'pages#about'
 end
