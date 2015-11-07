@@ -11,9 +11,14 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = params[:question]
-    @question = Question.create(description: question[:description])
+    @question = Question.create(question_params)
     redirect_to(@question)
+  end
+
+  private
+
+  def question_params
+    params[:question].permit(:description)
   end
 
 end
