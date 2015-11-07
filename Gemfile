@@ -44,3 +44,9 @@ group :development, :test do
   gem 'spring'
 end
 
+# Heroku integration
+gem 'rails_12factor', group: :production
+gem 'rails_stdout_logging'
+
+
+ruby '2.0.0'
