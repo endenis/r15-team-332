@@ -2,8 +2,9 @@ class QuestionsController < ApplicationController
 
   def show
     question_id = params[:id]
-    @question = Question.find(question_id)
+    @question = retrieve_question question_id
     @answers = @question.answers
+    @anser = Answer.new
   end
 
   def new
@@ -13,6 +14,10 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.create(question_params)
     redirect_to(@question)
+  end
+
+  def retrieve_question id
+    Question.find(id)
   end
 
   private

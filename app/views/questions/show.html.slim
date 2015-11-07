@@ -5,3 +5,7 @@ h2 #{@question.description}
     b #{answer.title}
   div #{answer.body}
   div -------------
+
+br
+
+= render 'shared/answer_form', :answer => @answer
