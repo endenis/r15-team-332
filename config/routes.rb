@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about', as: :about
 
   # Just show for the time being...
-  resources :questions, only: [:show]
+  resources :questions, only: [:show, :new, :create]
 
 end
