@@ -1,11 +1,11 @@
-h1 AAA
-h2 #{@question.description}
-- @answers.each do |answer|
-  div
-    b #{answer.title}
-  div #{answer.body}
-  div -------------
+div class="container"
+  div class="row"
+    div class="large-12 columns"
+      h1 Music 2 find
+  div class="row"
+    div class="jumbotron"
+      h3 Summer reggae cool
+      div G entendu 7 musik dans le tro-mé
+    div id="answers"
 
-br
-
-= render 'shared/answer_form', :answer => @answer
+  = javascript_include_tag "question"

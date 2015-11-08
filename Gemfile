@@ -35,6 +35,8 @@ gem 'will_paginate', '~> 3.0.6'
 
 gem 'api-pagination'
 
+gem 'react-rails', '~> 1.4.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

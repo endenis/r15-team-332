@@ -19,7 +19,7 @@ class Api::AnswersController < ApplicationController
   private
 
   def answer_params
-    params.permit(:body, :title)
+    params.permit(:body, :title, :question_id)
   end
 
 end
