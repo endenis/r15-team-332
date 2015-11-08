@@ -1,0 +1,19 @@
+@import '../common/variables';
+.header {
+  height: 75px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  justify-content: flex-end;
+  .nav-title {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    line-height: 75px;
+    color: $white;
+  }
+}

@@ -1,0 +1,18 @@
+.content {
+  margin-top: 75px;
+  padding: 10%;
+  .entry {
+    width: 60%;
+    height: 300px;
+    border-radius: 5px;
+    padding: 5%;
+    .form {
+      flex: 1;
+      justify-content: space-between;
+      .text-input {
+        border: none;
+        border-radius: 2px;
+      }
+    }
+  }
+}
