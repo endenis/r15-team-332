@@ -4,8 +4,9 @@ class Api::AnswersController < ApplicationController
 
   def index
     question_id = params[:question_id]
-    @answers = Question.find(question_id).answers
-    paginate json: @answers, per_page: 10
+    @answers = Question.find(question_id).answers.order created_at: :desc
+    # paginate json: @answers, per_page: 10
+    render json: @answers
   end
 
   def create
