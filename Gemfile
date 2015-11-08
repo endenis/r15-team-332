@@ -43,6 +43,10 @@ gem 'react-rails', '~> 1.4.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'paperclip', '~> 4.3'
+gem 'paperclip-storage-ftp'
+gem 'httparty'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -67,5 +71,8 @@ end
 gem 'rails_12factor', group: :production
 gem 'rails_stdout_logging'
 
+gem 'recordmp3js-rails', github: 'endenis/recordmp3js-rails', ref: '53d2eeb73fd7053b4a6bacdafcc0bff260bdeb4d'
+
+gem 'config'
 
 ruby '2.0.0'
