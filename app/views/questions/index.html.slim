@@ -1,0 +1,30 @@
+= render 'partials/navigation'
+.content.flex-column
+  - @questions.each do |question|
+    .entry.flex-column
+      .entry-header
+        span.number Question n° #{ question.id }
+        span.author
+          |asked by
+          |&nbsp;
+          b = question.user.name
+      .description.flex-row
+        i.fa.fa-quote-left
+        span.desc-text
+          = question.description
+        i.fa.fa-quote-right
+      .audio-cta.flex-row
+        audio controls="controls"
+          source src="#{ question.audio_url }"
+        = link_to question_path(question.id), class:"btn-light-medium"
+          |Found it!
+      .entry-footer
+        - if question.answers.count > 0
+          span.count
+            |Already has
+            |&nbsp;
+            = link_to question_path(question.id)
+              |#{ question.answers.count } answers
+        - else
+          span Not answered :(
+        span was asked #{ time_ago_in_words question.created_at } ago

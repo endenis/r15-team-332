@@ -74,7 +74,7 @@ end
 gem 'rails_12factor', group: :production
 gem 'rails_stdout_logging'
 
-gem 'recordmp3js-rails', github: 'endenis/recordmp3js-rails', ref: '7cdef3ea43d12addd9c234e08ff2e9bfef834126'
+gem 'recordmp3js-rails', github: 'endenis/recordmp3js-rails', ref: '53d2eeb73fd7053b4a6bacdafcc0bff260bdeb4d'
 
 gem 'config'
 

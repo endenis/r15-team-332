@@ -17,3 +17,7 @@
  */
 
 
+audio:not([controls]) {
+  display: block !important;
+  height: auto;
+}

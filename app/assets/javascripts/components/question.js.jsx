@@ -19,9 +19,7 @@ var ServerAPI = {
 var Answer = React.createClass({
   render: function(){
     return (
-      <div className="row">
-        <div className="panel"><h2>{this.props.title}</h2><br /><p>{this.props.body}</p></div>
-      </div>
+        <div className="answer-block flex-column"><h3 className="answer-author"><b>{ this.props.user }</b> : <span className="created-at"> { this.props.created_at } ago</span></h3><div className="answer-content flex-row"><p className="answer-title">{this.props.title}</p><p className="answer-text">{this.props.body}</p></div></div>
     );
   }
 })
@@ -34,9 +32,16 @@ var AnswerList = React.createClass({
   loadAnswersFromServer: function() {
     self = this;
     ServerAPI.getAnswers(this.props.question_id, function(results) {
+      console.log(results)
       var answers = [];
       results.answers.forEach(function(answer){
-        answers.push(<Answer title={answer.title} body={answer.body} key={answer.id} />);
+        if (answer.user != null) {
+          var username = answer.user.name;
+        }
+        else {
+          var username = "Anonymous";
+        }
+        answers.push(<Answer title={answer.title} body={answer.body} key={answer.id} user={ username } created_at={ answer.created_at }/>);
       })
       self.setState({answers: answers});
     });
@@ -49,7 +54,7 @@ var AnswerList = React.createClass({
   },
   render: function() {
     return (
-        <div><AnswerForm onAnswerSubmit={this.handleAnswerSubmit} question_id={this.props.question_id} /><div><h1>Answers</h1>{this.state.answers}</div>
+        <div className="global"><AnswerForm onAnswerSubmit={this.handleAnswerSubmit} question_id={this.props.question_id} /><div className="answers-list"><p className="title">What others have answered:</p>{this.state.answers}</div>
         </div>
         )
   }
@@ -65,10 +70,16 @@ var AnswerForm = React.createClass({
   },
   render: function() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Title of the song" ref="title" />
-        <input type="text" placeholder="Your comment" ref="body" />
-        <input type="submit" value="Post" />
+      <form className="flex-column" onSubmit={this.handleSubmit}>
+        <p className="answer-text"> You think you know the answer ?</p>
+        <div className="inputs flex-row">
+          <input type="text" placeholder="Title of the song" ref="title" />
+          <input type="text" placeholder="Your comment" ref="body" />
+          <button className="btn-dark-small" type="submit" value="Post">
+            POST
+          </button>
+        </div>
+
       </form>
     );
   }
