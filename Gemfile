@@ -19,6 +19,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+# Prefer serializer over jbuilder
+gem 'active_model_serializers'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -26,6 +29,13 @@ gem 'devise'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+# Pagination
+gem 'will_paginate', '~> 3.0.6'
+
+gem 'api-pagination'
+
+gem 'react-rails', '~> 1.4.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -45,6 +55,12 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Unit test framework
+  gem 'rspec-rails'
+  # Factory DSL for fake data
+  gem 'factory_girl_rails'
+
 end
 
 # Heroku integration

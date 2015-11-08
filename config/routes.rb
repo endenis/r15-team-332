@@ -6,4 +6,14 @@ Rails.application.routes.draw do
   # Just show for the time being...
   resources :questions, only: [:show, :new, :create]
 
+  namespace :api, path: 'api' do
+
+    resources :questions do
+      resources :answers
+    end
+
+    resources :questions
+
+  end
+
 end
