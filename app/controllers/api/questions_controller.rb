@@ -10,7 +10,6 @@ class Api::QuestionsController < ApplicationController
 
   def create
     question = Question.create(question_params)
-    question.user_id = current_or_guest_user.id
     render json: question
   end
 
@@ -21,7 +20,10 @@ class Api::QuestionsController < ApplicationController
   private
 
   def question_params
-    params.permit(:description).merge(user: current_or_guest_user, recording: Record.find(recording_id))
+    params.permit(:description, :recording_id).except(:recording_id).merge(
+      user: current_or_guest_user,
+      recording: Record.find(params[:recording_id]
+    ))
   end
 
 end
