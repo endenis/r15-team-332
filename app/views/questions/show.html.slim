@@ -1,11 +1,21 @@
-div class="container"
-  div class="row"
-    div class="large-12 columns"
-      h1 Music 2 find
-  div class="row"
-    div class="jumbotron"
-      h3 #{@question_description}
+= render 'partials/navigation'
+.content.flex-column
+  .entry.flex-column.single-entry
+    .entry-header
+      span.number.font-normal-kilo Question n° #{ @question.id }
+      span.author.font-normal-kilo
+        |asked by
+        |&nbsp;
+        b = @question.user.name
+    .description.flex-row
+      i.fa.fa-quote-left
+      span.desc-text.font-normal-mega
+        = @question.description
+      i.fa.fa-quote-right
+    .audio-cta
+      audio controls="controls"
+        source src="#{ @question.audio_url }"
     div id="answers"
-
-  = react_component "AnswerList", question_id: @question_id
+  #answers.flex-column
+    = react_component "AnswerList", question_id: @question_id
 

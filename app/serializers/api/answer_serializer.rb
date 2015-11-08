@@ -5,4 +5,7 @@ class Api::AnswerSerializer < ActiveModel::Serializer
 
   has_one :user, serializer: UserShortSerializer
 
+  def created_at
+    ActionController::Base.helpers.time_ago_in_words object.created_at
+  end
 end

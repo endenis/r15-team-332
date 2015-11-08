@@ -1,5 +1,13 @@
 = render 'partials/navigation'
 #home
   section.presentation
-    = link_to new_question_path, class:'mic-link'
+    h1.home-title.font-normal-tera
+      |There's that song.
+      br
+      |That you can hum.
+      br
+      |But internet isn't helping with the title hunt.
+    = link_to new_question_path, class:'mic-link bounceInDown'
       i.fa.fa-microphone
+    = link_to questions_path, class:'home-title questions-link font-normal-giga'
+      |Or maybe you want to help someone in their search :)
