@@ -4,8 +4,8 @@ div class="container"
       h1 Music 2 find
   div class="row"
     div class="jumbotron"
-      h3 Summer reggae cool
-      div G entendu 7 musik dans le tro-mé
+      h3 #{@question_description}
     div id="answers"
 
-  = javascript_include_tag "question"
+  = react_component "AnswerList", question_id: @question_id
+

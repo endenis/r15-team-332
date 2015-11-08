@@ -1,16 +1,14 @@
 var ServerAPI = {
 
-  baseUrl: function() {return "http://localhost:3000/api";},
+  baseUrl: function(id) {return "http://localhost:3000/api/questions/" + id + "/answers";},
 
-  questionid : 32,
-
-  getAnswers: function(questionid, callback) {
-    $.get(this.baseUrl() + "/questions/" + this.questionid + "/answers", function(results) {
+  getAnswers: function(question_id, callback) {
+    $.get(this.baseUrl(question_id), function(results) {
       callback(results);
     });
   },
-  postAnswer: function(title, body, callback){
-    $.post(this.baseUrl() + "/questions/" + this.questionid + "/answers", {title: title, body: body}, function(results) {
+  postAnswer: function(question_id, title, body, callback){
+    $.post(this.baseUrl(question_id), {title: title, body: body}, function(results) {
       if (callback) {
         callback(results);
       }
@@ -28,13 +26,14 @@ var Answer = React.createClass({
   }
 })
 
+
 var AnswerList = React.createClass({
   getInitialState: function() {
         return {answers: []};
   },
   loadAnswersFromServer: function() {
     self = this;
-    ServerAPI.getAnswers(32, function(results) {
+    ServerAPI.getAnswers(this.props.question_id, function(results) {
       var answers = [];
       results.answers.forEach(function(answer){
         answers.push(<Answer title={answer.title} body={answer.body} key={answer.id} />);
@@ -50,15 +49,19 @@ var AnswerList = React.createClass({
   },
   render: function() {
     return (
-      <div><AnswerForm onAnswerSubmit={this.handleAnswerSubmit} /><div><h1>Answers</h1>{this.state.answers}</div></div>);
+        <div><AnswerForm onAnswerSubmit={this.handleAnswerSubmit} question_id={this.props.question_id} /><div><h1>Answers</h1>{this.state.answers}</div>
+        </div>
+        )
   }
 })
 
 var AnswerForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
-    ServerAPI.postAnswer(this.refs.title.value, this.refs.body.value);
-    this.props.onAnswerSubmit();
+    self = this;
+    ServerAPI.postAnswer(this.props.question_id, this.refs.title.value, this.refs.body.value, function(res){
+        self.props.onAnswerSubmit();
+    });
   },
   render: function() {
     return (
@@ -70,8 +73,3 @@ var AnswerForm = React.createClass({
     );
   }
 });
-
-ReactDOM.render(
-    <AnswerList />,
-    document.getElementById("answers")
-);

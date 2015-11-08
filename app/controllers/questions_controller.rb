@@ -3,8 +3,8 @@ class QuestionsController < ApplicationController
   def show
     question_id = params[:id]
     @question = retrieve_question question_id
-    @answers = @question.answers
-    @anser = Answer.new
+    @question_id = question_id
+    @question_description = @question.description
   end
 
   def new
