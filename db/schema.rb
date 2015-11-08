@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107150152) do
+ActiveRecord::Schema.define(version: 20151108133738) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "body"
@@ -22,8 +22,20 @@ ActiveRecord::Schema.define(version: 20151107150152) do
 
   create_table "questions", force: :cascade do |t|
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "recording_id"
+  end
+
+  add_index "questions", ["recording_id"], name: "index_questions_on_recording_id"
+
+  create_table "recordings", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

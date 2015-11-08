@@ -1,0 +1,13 @@
+h1 Test to record MP3
+
+button onclick="startRecording(this);" record
+button onclick="stopRecording(this);" disabled="disabled" stop
+
+h2 The recording
+ul id="recordingslist"
+
+h2 Log
+pre id="log" style="hidden: true"
+
+= javascript_include_tag 'recordmp3', 'data-turbolinks-track' => true
+= javascript_include_tag 'lib/recording', 'data-turbolinks-track' => true
