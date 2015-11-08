@@ -10,7 +10,8 @@ class Recording < ActiveRecord::Base
       {
         host: ENV['FTP_SERVER'],
         user: ENV['FTP_USER'],
-        password: ENV['FTP_PASSWORD']
+        password: ENV['FTP_PASSWORD'],
+        passive: true
       }
     ]
 
