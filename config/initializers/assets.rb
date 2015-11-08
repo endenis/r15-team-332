@@ -14,3 +14,6 @@ Rails.application.config.assets.precompile += %w( libmp3lame.min.js mp3Worker.js
 
 Rails.application.config.assets.precompile += %w( question.js )
 
+Rails.application.config.assets.precompile += %w( lol/new.css )
+Rails.application.config.assets.precompile += %w( views/index.css )
+Rails.application.config.assets.precompile += %w( views/new.css )
