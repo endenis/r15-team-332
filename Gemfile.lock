@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/endenis/recordmp3js-rails.git
-  revision: 53d2eeb73fd7053b4a6bacdafcc0bff260bdeb4d
-  ref: 53d2eeb73fd7053b4a6bacdafcc0bff260bdeb4d
+  revision: 7cdef3ea43d12addd9c234e08ff2e9bfef834126
+  ref: 7cdef3ea43d12addd9c234e08ff2e9bfef834126
   specs:
     recordmp3js-rails (0.1.0)
 

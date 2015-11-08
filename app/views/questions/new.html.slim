@@ -1,7 +1,22 @@
 = render 'partials/navigation'
 section.content.flex-row
   .entry.flex-column.background-dark-4
-    form.form.flex-column name=""
-      textarea.text-input.background-dark-5 rows="5" cols="50" type="text"
-      button type="submit" class="btn-light-big"
-        |submit
+    h2 1. Record your singing (15s max)
+    div
+      button id="recordButton" class="btn-light-small" onclick="startRecording(this);" record
+      | &nbsp;
+      button id="stopButton" class="btn-light-small" onclick="stopRecording(this);" disabled="disabled" stop
+    ul id="recordingslist"
+    pre id="log" style="hidden: false; width: 100%"
+    br
+    h2 2. Write the description (optional)
+    = form_for(@question, html: {class: 'form flex-column'} ) do |f|
+      /form.form.flex-column name=""
+      textarea.text-input.background-dark-5 name="description" rows="4" cols="50" type="text" placeholder="E.g.: I've heard this song in a TV-ad..."
+      br
+      div id="hiddenAudioId"
+      button id="sendButton" type="submit" class="btn-light-big" disabled="disabled"
+        |ask to identify it
+
+= javascript_include_tag 'recordmp3', 'data-turbolinks-track' => true
+= javascript_include_tag 'lib/recording_form', 'data-turbolinks-track' => true

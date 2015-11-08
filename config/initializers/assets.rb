@@ -10,7 +10,7 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 
 # assets for audio recording
-Rails.application.config.assets.precompile += %w( libmp3lame.min.js mp3Worker.js recorderWorker.js recordmp3.js lib/recording.js )
+Rails.application.config.assets.precompile += %w( libmp3lame.min.js mp3Worker.js recorderWorker.js recordmp3.js lib/recording.js lib/recording_form.js )
 
 Rails.application.config.assets.precompile += %w( question.js )
 

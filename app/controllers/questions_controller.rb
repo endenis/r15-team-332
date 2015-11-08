@@ -23,7 +23,10 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:description)
+    params.permit(:description, :recording_id).except(:recording_id).merge(
+      user: current_or_guest_user,
+      recording: Recording.find(params[:recording_id]
+    ))
   end
 
 end

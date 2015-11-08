@@ -52,6 +52,25 @@
     .btn-#{$colorkey}-#{$buttonkey} {
       @include build-button($size, $color);
     }
+    .btn-#{$colorkey}-#{$buttonkey}[disabled] {
+      background-color: $green3;
+      &:before {
+        width: 0;
+        height: 0;
+      }
+      &:hover {
+        background-color: $green3;
+        color: $white;
+        &:before {
+          background: $green3;
+          height: 0;
+          width: 0;
+          transform: none;
+          transition: none;
+          transform-origin: 0 0;
+        }
+      }
+    }
   }
 }
 
