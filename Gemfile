@@ -26,6 +26,9 @@ gem 'active_model_serializers'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+# front assets
+gem 'normalize-rails', '~> 3.0'
+gem 'font-awesome-rails', '~> 4.4'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

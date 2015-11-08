@@ -1,0 +1,33 @@
+@import 'common/variables';
+#home {
+  margin-top: 75px;
+  .presentation {
+    height: calc(100vh - 75px);
+    background-image: asset-url('home-bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    .mic-link {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: calc(50% - 100px);
+      top: calc(50% - 100px);
+      transition: transform .3s ease-in-out;
+        &:hover {
+          transform: scale(1.4);
+        }
+      i.fa.fa-microphone {
+        font-size: 70px;
+        width: 100px;
+        text-align: center;
+        color: $white;
+        border: 5px solid $white;
+        padding: 20px;
+        line-height: 100px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

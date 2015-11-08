@@ -1,6 +1,7 @@
-h1 Let me hear your voice!
-
-= form_for @question, url: {action: "create"} do |f|
-  = f.text_field :description
-  = f.submit "Ask"
-
+= render 'partials/navigation'
+section.content.flex-row
+  .entry.flex-column.background-dark-4
+    form.form.flex-column name=""
+      textarea.text-input.background-dark-5 rows="5" cols="50" type="text"
+      button type="submit" class="btn-light-big"
+        |submit

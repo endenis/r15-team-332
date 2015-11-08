@@ -1,0 +1,39 @@
+//color variables
+
+
+$green1: #212922;
+$green2: #294936;
+$green3: #3e6259;
+$green4: #5b8266;
+$green5: #aef6c7;
+$white: #fff;
+$black: #000;
+
+$color-palette: (
+  dark: $green1 $green2 $green3 $green4 $green5 $white,
+  light: $green3 $green4 $green5 $green2 $green1 $black
+);
+
+//size variables
+$font-sizes: (
+  pico: 10px,
+  xs: 12px,
+  sm: 14px,
+  md: 16px,
+  lg: 18px,
+  kilo: 22px,
+  mega: 26px,
+  giga: 36px,
+  tera: 40px
+);
+
+$font-weights: (
+  normal: 400,
+  bold: 700
+);
+
+$button-sizes: (
+  small: 9px 15px 7px,
+  medium: 12px 21px 9px,
+  big: 16px 40px 13px
+);
