@@ -1,0 +1,6 @@
+h1 Let me hear your voice!
+
+= form_for @question, url: {action: "create"} do |f|
+  = f.text_field :description
+  = f.submit "Ask"
+

@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   resources :questions, only: [:show, :new, :create]
 
   namespace :api, path: 'api' do
-    resources :answers
+
+    resources :questions do
+      resources :answers
+    end
+
+    resources :questions
 
   end
 
