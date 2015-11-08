@@ -7,4 +7,18 @@ Rails.application.routes.draw do
 
   get 'js/recorderWorker'
   get 'js/mp3Worker'
+
+  # Just show for the time being...
+  resources :questions, only: [:show, :new, :create]
+
+  namespace :api, path: 'api' do
+
+    resources :questions do
+      resources :answers
+    end
+
+    resources :questions
+
+  end
+
 end

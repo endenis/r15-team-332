@@ -11,5 +11,7 @@ Answer.delete_all
 
 question = Question.create(description: "Hey ho je suis une description")
 question.answers << Answer.create(title: "Cheese U by the Baguette Band")
+question.answers << correct_answer = Answer.create(title: "Hmm, I got it")
 question.answers << Answer.create(body: "Hmm, I think it's a song releated with wine")
+question.correct_answer_id = correct_answer.id
 
