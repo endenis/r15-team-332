@@ -1,6 +1,6 @@
 class Api::AnswersController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token, :only => :create
+  skip_before_filter :verify_authenticity_token
 
   def index
     question_id = params[:question_id]
